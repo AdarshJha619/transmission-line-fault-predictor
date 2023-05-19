@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <style>
+      header{
+        text-align: center;
+        color:white;
+        font-size:25px;
+        font-family: Cursive;
+        background: #7676f5;
+      	border: 3px solid;
+      	height:50%;
+      	width:100%;
+	      padding:25px;
+      }
+      footer{
+        background: #909090;
+        text-align: right;
+        margin:5px;
+        padding:15px;
+        font-family: Cursive;
+      }
+        .foot {
+                font-family: cursive;
+                font-size: 10px;
+                align-content: center;
+        }
+        .last {
+                font-size: 50px;
+          font-family: Cursive;
+                color: black;
+        }
+        .result {
+            padding:5px;
+            background-color: white;
+            margin: auto;
+            width: 100%;
+            height: 50%;
+            color: black;
+            border: 1px solid cornsilk;
+        }
+
+
+        .container {
+                background-color: white;
+
+        }
+      .form-group{
+        padding:10px;
+        text-align: center;
+        font-weight:bold;
+
+      }
+      .input{
+        
+  opacity:0.7;
+        height:300px;
+        font-weight:bold;
+        text-align:center;
+      }
+      .btn-info 
+      {
+        background-color: #2196F3;
+	height:40px;
+	width:100px;
+      } 
+.btn-info:hover {background: #0b7dd1;}
+    </style>
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    </head>
+    <header>
+    <div class="card text-center">
+        <div class="card-header"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/R.V._College_of_Engineering_logo.png/220px-R.V._College_of_Engineering_logo.png"height=60px,width=60px,alt="">
+
+          Department of Electrical and Electronics Engineering
+        </div>
+      </div>
+    </header>
+    <body>
+    <div class="container">
+            <form action="{{ url_for('main') }}" method="POST">
+            <fieldset>
+                <legend>Transmission line fault Predictor</legend>
+            <div class="input">
+                <div class="form-group">
+                            <label for="currentA">Current in Phase A</label>
+                            <input name="currentA" class="form-control" id="currentA">
+                             
+                </div>
+                <div class="form-group">
+                           <label for="currentB">Current in Phase B</label>
+                           <input name="currentB" class="form-control" id="currentB">
+                </div>
+                <div class="form-group">
+                    <label for="currentC">Current in Phase C</label>
+                    <input name="currentC" class="form-control" id="currentC">
+                </div>
+                <div class="form-group">
+                    <label for="voltageA">Voltage in Phase A</label>
+                    <input name="voltageA" class="form-control" id="voltageA">
+                </div>
+                <div class="form-group">
+                    <label for="voltageB">Voltage in Phase B</label>
+                    <input name="voltageB" class="form-control" id="voltageB">
+                </div>
+                <div class="form-group">
+                    <label for="voltageC">Voltage in Phase C</label>
+                    <input name="voltageC" class="form-control" id="voltageC">
+                </div>
+
+
+                <button type="submit" class="btn-info">Predict</button>
+              </div>
+            </fieldset>
+            </form>
+            <br>
+            <div class="result" align="center">
+                    {% if result %}
+                        {% for variable, value in original_input.items() %}
+                            <b>{{ variable }}</b> : {{ value }}
+                        {% endfor %}
+                        <br>
+                        <br> Prediction:
+                           <p class="last">{{ result }}</p>
+                    {% endif %}
+            </div>
+        </div>
+        <br>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+
+    </div>
+    </div>
+<!-- Footer -->
+    
+    </body>
+</html>
