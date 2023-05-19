@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 
-with open('Transmission Line Fault Detection.pkl', 'rb') as f:
+with open('/Users/namraquasim/Documents/GitHub/tx line fault detector/Transmission Line Fault Detection.pkl', 'rb') as f:
     model = pickle.load(f)
 
 app = flask.Flask(__name__, template_folder='templates')
@@ -28,12 +28,12 @@ def main():
         
         prediction = model.predict(input_variables)
         prediction = pd.DataFrame(prediction, columns=['Fault_Type'])
-        prediction = prediction["Fault_Type"].map({0:'line A line B line C fault', 1:'Line A line B line C to ground fault', 2:'line A line B and ground fault',
-                      3:'line A and ground fault', 4:'line B line C fault',
+        prediction = prediction["Fault_Type"].map({0:'LLL Fault (Between phase A,B and C)', 1:'LLLG Fault (Between phase A,B,C and Ground)', 2:'LLG Fault (Between phase A,B anf Ground)',
+                      3:'LG Fault (Between phase A and Ground)', 4:'LL Fault (Between phase A and B)',
                       5:'No Fault'})
         print(prediction)              
-        return flask.render_template('main.html', original_input={'currentA ':ia, 'currentB ':ib ,'currentC ':ic , 
-                                     'voltageA ':va, 'voltageB ':vb , 'voltageC ':vc },
+        return flask.render_template('main.html', original_input={'Current in phase A ':ia, 'Current in phase B ':ib ,'Current in phase C ':ic , 
+                                     'Voltage in phase A ':va, 'Voltage in phase B ':vb , 'Voltage in phase C ':vc },
                                     result=prediction[0]
                                     )
 
