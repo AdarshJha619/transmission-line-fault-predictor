@@ -2,9 +2,9 @@
 <html lang ="en">
     <style>
       header{
-        text-align: center;
+        text-align: left;
         color:white;
-        font-size:25px;
+        font-size:40px;
         font-family: Cursive;
         background: #7676f5;
       	border: 3px solid;
@@ -18,6 +18,12 @@
         margin:5px;
         padding:15px;
         font-family: Cursive;
+      }
+      legend{
+        font-size:30px;
+        text-align:center;
+        font-family: Sans-serif;
+        font-weight: bold;
       }
         .foot {
                 font-family: cursive;
@@ -38,7 +44,15 @@
             color: black;
             border: 1px solid cornsilk;
         }
-
+        .alert-alert-success{
+          padding:30px;
+          font-size:15px;
+          margin:30px;
+          
+        }
+        .container2{
+          color:red;
+        }
 
         .container {
                 background-color: white;
@@ -52,16 +66,18 @@
       }
       .input{
         
-  opacity:0.7;
-        height:300px;
+        opacity:0.7;
+        
         font-weight:bold;
         text-align:center;
       }
       .btn-info 
       {
-        background-color: #2196F3;
+        background-color: #7676f5;
 	height:40px;
-	width:100px;
+  width:100px;
+  color:black;
+  font-size:15px;
       } 
 .btn-info:hover {background: #0b7dd1;}
     </style>
@@ -74,7 +90,7 @@
     </head>
     <header>
     <div class="card text-center">
-        <div class="card-header"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/R.V._College_of_Engineering_logo.png/220px-R.V._College_of_Engineering_logo.png"height=60px,width=60px,alt="">
+        <div class="card-header"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/R.V._College_of_Engineering_logo.png/220px-R.V._College_of_Engineering_logo.png"height=100px,width=100px,alt="">
 
           Department of Electrical and Electronics Engineering
         </div>
@@ -118,6 +134,7 @@
             </fieldset>
             </form>
             <br>
+            
             <div class="result" align="center">
                     {% if result %}
                         {% for variable, value in original_input.items() %}
@@ -128,6 +145,21 @@
                            <p class="last">{{ result }}</p>
                     {% endif %}
             </div>
+           <div class="container2" id="guidelines">
+            <div class="alert-alert-success" role="alert" >
+              <h2 class="alert-heading">Guidelines:</h2>
+              <p>The model predicts the type of fault in the three phase transmission line. Provide the values of corrent and voltage of respective phases accordingly. The types of faults predicted are: </p>
+              <hr>
+              <p class="mb-0">No Fault</p>
+              <p class="mb-0">LL Fault (Between phase A and B)</p>
+              <p class="mb-0">LG Fault (Between phase A and Ground)</p>
+              <p class="mb-0">LLG Fault (Between phase A,B and Ground)</p>
+              <p class="mb-0">LLL Fault (Between phase A,B and C)</p>
+              <p class="mb-0">LLLG Fault (Between phase A,B,C and Ground)</p>
+            </div>
+          </div>
+
+
         </div>
         <br>
 
@@ -139,6 +171,10 @@
     </div>
     </div>
 <!-- Footer -->
-    
+<footer id="main-footer">
+</br>
+  
+  By: Adarsh, Akarsh, Atri and Ankit
+</footer>
     </body>
 </html>
