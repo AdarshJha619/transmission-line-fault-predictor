@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 
-with open('/Users/namraquasim/Documents/GitHub/tx line fault detector/Transmission Line Fault Detection.pkl', 'rb') as f:
+with open('Transmission Line Fault Detection.pkl', 'rb') as f:
     model = pickle.load(f)
 
 app = flask.Flask(__name__, template_folder='templates')
