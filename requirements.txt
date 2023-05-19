@@ -1,0 +1,17 @@
+Flask==2.2.2
+gunicorn==20.0.4
+Jinja2==3.1.2
+itsdangerous==1.1.0
+MarkupSafe==2.1.1
+Pillow==8.0.1
+Werkzeug==2.2.3
+joblib==0.17.0
+matplotlib>=3.3.2
+numpy>=1.21.0
+pandas>=0.24.2
+simple-pickle==1.5.0
+seaborn>=0.11.0
+scikit-learn>=0.23.2
+scipy>=1.5.3
+click==8.1.3
+pip==23.1.2
